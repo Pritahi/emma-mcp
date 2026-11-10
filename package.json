@@ -1,18 +1,31 @@
 {
   "name": "emma-mcp",
-  "version": "0.1.0",
-  "description": "MCP server: multi-cloud spot compute for AI agents, powered by the emma API",
-  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prompt-to-provision multi-cloud compute through emma's Infrastructure API and MCP.",
+  "license": "MIT",
   "scripts": {
-    "dev": "tsx src/index.ts",
-    "build": "tsc -p tsconfig.json"
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0",
+    "mcp": "tsx mcp/server.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@emma-community/emma-typescript-sdk": "^1.0.3",
-    "@modelcontextprotocol/sdk": "^1.0.0"
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@next/env": "^16.4.6",
+    "next": "^16.4.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.12"
   }
 }
