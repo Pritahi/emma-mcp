@@ -77,3 +77,75 @@ export interface ProvisionedVm {
   mode: SourceMode;
   message: string;
 }
+
+export interface SpotOffer {
+  id: string;
+  providerId?: number;
+  providerName: string;
+  locationId?: number;
+  locationName: string;
+  country?: string;
+  continent?: string;
+  region?: string;
+  dataCenterId: string;
+  dataCenterName: string;
+  osId: number;
+  osType?: string;
+  osVersion?: string;
+  cloudNetworkTypes: string[];
+  vCpuType: string;
+  vCpu: number;
+  ramGb: number;
+  volumeGb: number;
+  volumeType: string;
+  acceleratorTypeId?: string;
+  gpuType?: string;
+  gpuCount: number;
+  gpuMemoryGb?: number;
+  cost: OfferCost;
+  pricePerHour: number;
+  currency: string;
+  regionLabel: string;
+  source: SourceMode;
+}
+
+export interface SpotSearchFilters {
+  minVcpu?: number;
+  minRamGb?: number;
+  minGpuCount?: number;
+  gpuType?: string;
+  region?: string;
+  maxPricePerHour?: number;
+  currency?: string;
+  limit?: number;
+}
+
+export interface SpotInstanceStatus {
+  id: string;
+  name: string;
+  status: string;
+  mode: SourceMode;
+  provider?: string;
+  location?: string;
+  os?: string;
+  vCpu?: number;
+  ramGb?: number;
+  gpuType?: string;
+  gpuCount?: number;
+  publicIpAddresses: string[];
+  privateIpAddresses: string[];
+  ipAddresses: string[];
+  sshUser?: string;
+  sshPort: number;
+  sshCommand?: string;
+  sshReady: boolean;
+}
+
+export interface SpotBenchmarkResult {
+  command: string;
+  stdout: string;
+  stderr: string;
+  exitCode: number;
+  durationMs: number;
+  simulated: boolean;
+}
